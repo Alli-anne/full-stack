@@ -1,1 +1,16 @@
-<p>contact list</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Contacts</h4>
+        <a href="#" class="btn btn-primary btn-xs">New Contact</a>
+    </div>
+    <div class="panel-body">
+        <div class="row" *ngFor="let contact of contacts">
+            <div>
+                <img alt="{{contacts.name}}" src="{{contacts.imageUrl}}" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+                <h5><a href="#">{{contacts.name}}</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
