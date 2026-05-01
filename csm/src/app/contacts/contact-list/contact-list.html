@@ -5,11 +5,11 @@
     </div>
     <div class="panel-body">
         <div class="row" *ngFor="let contact of contacts">
-            <div>
-                <img alt="{{contacts.name}}" src="{{contacts.imageUrl}}" class="img-responsive">
+            <div class="col-md-2">
+                <img alt="{{ contact.name }}" src="{{ contact.imageUrl }}" class="img-responsive img-circle">
             </div>
             <div class="col-md-10">
-                <h5><a href="#">{{contacts.name}}</a></h5>
+                <h5><a href="#">{{ contact.name }}</a></h5>
             </div>
         </div>
     </div>

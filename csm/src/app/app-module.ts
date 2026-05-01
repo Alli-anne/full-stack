@@ -8,7 +8,7 @@ import { ContactDetail } from './contacts/contact-detail/contact-detail';
 import { Header } from './header/header';
  
 @NgModule({
-  declarations: [App, Contacts, ContactList, ContactDetail, Header],
+declarations: [App, Contacts, ContactList, ContactDetail, Header],
   imports: [BrowserModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
