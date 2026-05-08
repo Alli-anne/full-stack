@@ -9,6 +9,7 @@ import { recipe } from './recipe.model';
 })
 export class RecipeBook implements OnInit  {
   
+  selectedRecipe: Recipe;
   
   constructor() { }
 
