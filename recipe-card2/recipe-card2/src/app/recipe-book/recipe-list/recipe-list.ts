@@ -6,9 +6,9 @@ import { recipe } from '../recipe.model';
   templateUrl: './recipe-list.html',
   styleUrl: './recipe-list.css',
 })
-export class RecipeList implements OnInit  {  // Changed from recipeList to RecipeList
+export class RecipeList implements OnInit  {
 
-  @Output() recipeWasSelected = new EventEmitter<recipe>();
+  @Output() recipeSelected = new EventEmitter<recipe>();
   recipes: recipe[] = [
     new recipe('A Test Recipe', 'This is a simply a test', 'https://pixabay.com/photos/waffles-eggs-flour-whisk-2190961/'),
   ];
@@ -19,6 +19,6 @@ export class RecipeList implements OnInit  {  // Changed from recipeList to Reci
   }
 
   onRecipeSelected(recipe: recipe) {
-    this.recipeWasSelected.emit(recipe);
+    this.recipeSelected.emit(recipe);
   }
 }
