@@ -10,7 +10,7 @@ import { recipe } from '../../recipe.model';
 })
 export class RecipeItems implements OnInit {
   @Input() recipe: recipe; 
-  @Output()recipeSelected = new EventEmitter<void>();
+  @Output() recipeSelected = new EventEmitter<recipe>();
  
 
   constructor() { }
@@ -18,6 +18,6 @@ export class RecipeItems implements OnInit {
   ngOnInit() { }
 
   onSelected() {
-    this.recipeSelected.emit();
+    this.recipeSelected.emit(this.recipe);
   }
 }

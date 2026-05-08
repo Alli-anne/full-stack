@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
  
 @Component({
@@ -7,11 +7,21 @@ import { NgForm } from '@angular/forms';
   templateUrl: './shopping-list-edit.html',
   styleUrl: './shopping-list-edit.css',
 })
-export class ShoppingListEdit {
+export class ShoppingListEdit implements OnInit {
+  @ViewChild ('nameInput') nameInputRef: ElementRef;
+  @ViewChild ('amountInput') amountInputRef: ElementRef;
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();
+
+
+  constructor() {}
+
+  ngOnInit() {}
+
+
   onAddItem(form: NgForm) {
-    const value = form.value;
-    console.log('Item added:', value);
-    // TODO: Emit the ingredient to the parent component or add to service
-    form.reset();
+    const ingName = this.nameInputRef.nativeElement.value;
+    const ingAmount = this.amountInputRef.nativeElement.value;
+    const newIngredient = new Ingredient(ingName, ingAmount);
+    this.ingredientAdded.emit(newIngredient);
   }
 }

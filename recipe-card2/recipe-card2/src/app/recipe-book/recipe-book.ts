@@ -1,6 +1,8 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { recipe } from './recipe.model';
-
+ 
 @Component({
   selector: 'app-recipe-book',
   standalone: false,
@@ -9,11 +11,11 @@ import { recipe } from './recipe.model';
 })
 export class RecipeBook implements OnInit  {
   
-selectedRecipe: recipe;
+  selectedRecipe: recipe | undefined;
   
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 }
-
+ 
