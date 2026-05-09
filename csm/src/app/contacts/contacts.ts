@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
+import { Contact } from './contact-model';
 @Component({
   selector: 'app-contacts',
   standalone: false,
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './contacts.css',
 })
 export class Contacts {
-  
+  selectedContact: Contact | null = null
 }
