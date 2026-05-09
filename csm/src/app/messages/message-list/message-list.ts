@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
  
-import { Message } from './message-model';
+import { Message } from '../message.model';
 @Component({
   selector: 'app-message-list',
   standalone: false,
@@ -13,4 +13,7 @@ export class MessageList {
     new Message(2, 'Hello Student', 'Thanks', 'Isabelle French'),
     new Message(3, 'Hello Teacher', 'Thanks', 'Isabelle French'),
 ];
+onAddMessage(message: Message) {
+  this.messages.push(message);
+}
 }
