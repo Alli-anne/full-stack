@@ -1,26 +1,28 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 
 import { Document } from '../document.model';
+import { DocumentsService } from '../documents.service';
+
+
 @Component({
   selector: 'app-document-list',
   standalone: false,
   templateUrl: './document-list.html',
   styleUrl: './document-list.css',
 })
-export class DocumentList {
+export class DocumentList  implements OnInit{
+  documents: Document[] = [];
 
-  @Output() selectedDocumentEvent = new EventEmitter<Document>();
+  constructor(private documentsService: DocumentsService) {
+  }
 
   onSelectedDocument(document: Document) {
-    this.selectedDocumentEvent.emit(document);
+    this.documentsService.documentSelectedEvent.emit(document);
   }
-documents: Document[] = [
-   new Document(1, 'Document 1', 'Document 1 description', 'https://www.google.com', []),
-    new Document(2, 'Document 2', 'Document 2 description', 'https://www.google.com', []),
-    new Document(3, 'Document 3', 'Document 3 description', 'https://www.google.com', []),
-    new Document(4, 'Document 4', 'Document 4 description', 'https://www.google.com', []),
-    new Document(5, 'Document 5', 'Document 5 description', 'https://www.google.com', []),
-]
+  
+ ngOnInit() {
+  this.documents = this.documentsService.getDocuments();
+}
    
 }
 
