@@ -4,8 +4,8 @@
         <h4>{{contact?.name}}</h4>
         <img alt="{{contact?.name}}" src="{{contact?.imageUrl}}" class="img-responsive img-circle">
         <div>
-            <a href="#" class="btn btn-primary btn-sm">Edit</a>
-            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+            <a href="#" class="btn btn-primary btn-sm" [routerLink]="[contact.id, 'edit']" >Edit</a>
+            <a href="#" class="btn btn-danger btn-sm" (click)="onDelete()">Delete</a>
         </div>
     </div>
     <div class="panel-body">

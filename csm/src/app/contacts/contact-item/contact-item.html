@@ -1,6 +1,6 @@
 <div class="row">
 <div class="col-md-10">
-<a href="#" (click)="onSelected()">{{ contact.name }}</a>
+<a href="#" routerLinkActive="active" [routerLink]="[contact.id]">{{ contact.name }}</a>
             </div>
             <div class="col-md-2">
                 <img alt="{{ contact.name }}" src="{{ contact.imageUrl }}" class="img-responsive">
