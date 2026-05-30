@@ -18,6 +18,8 @@ import { DropdownDirective } from './header/dropdown.directive';
 import { ContactService } from './contacts/contact.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentEdit } from './documents/document-edit/document-edit';
+import { ContactEdit } from './contacts/contact-edit/contact-edit';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { DocumentEdit } from './documents/document-edit/document-edit';
     MessageItem,
     MessageEdit,
     DocumentEdit,
+    ContactEdit
   ],
   imports: [BrowserModule, DropdownDirective, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners(), ContactService],

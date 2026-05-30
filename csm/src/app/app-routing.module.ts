@@ -6,8 +6,8 @@ import { MessageList } from './messages/message-list/message-list';
 import { DocumentDetail } from './documents/document-detail/document-detail';
 import { DocumentEdit } from './documents/document-edit/document-edit';
 import { NgModule } from '@angular/core';
-import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
-import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
+import { ContactEdit } from './contacts/contact-edit/contact-edit';
+import { ContactDetail } from './contacts/contact-detail/contact-detail';
 
 const appRoutes: Routes = [
     { path: 'messages', component: MessageList },
@@ -26,9 +26,9 @@ const appRoutes: Routes = [
   path: 'contacts',
   component: Contacts,
   children: [
-    { path: 'new', component: ContactEditComponent },
-    { path: ':id', component: ContactDetailComponent },
-    { path: ':id/edit', component: ContactEditComponent }
+    { path: 'new', component: ContactEdit },
+    { path: ':id', component: ContactDetail },
+    { path: ':id/edit', component: ContactEdit }
   ]
 }
 

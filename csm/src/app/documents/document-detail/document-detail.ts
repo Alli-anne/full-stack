@@ -1,9 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { WinRef } from 'src/app/win-ref';
-
+import { WinRef } from '../../../win-ref';
+import { DocumentsService } from '../documents.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Document } from '../document.model';
-import { DocumentService } from '../documents.service';
 
 @Component({
   selector: 'app-document-detail',
@@ -16,7 +15,7 @@ import { DocumentService } from '../documents.service';
 
 export class DocumentDetail implements OnInit {
   document: Document | null = null;
-  constructor(private documentService: DocumentService, private router: Router, private route: ActivatedRoute, private winRef: WinRef) {}
+  constructor(private documentService: DocumentsService, private router: Router, private route: ActivatedRoute, private winRef: WinRef) {}
   nativeWindow: any;
  ngOnInit() {
   this.route.params.subscribe((params) => {
