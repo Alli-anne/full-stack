@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Contact } from '../contact-model';
 
@@ -8,19 +8,6 @@ import { Contact } from '../contact-model';
   templateUrl: './contact-item.html',
   styleUrl: './contact-item.css',
 })
-export class ContactItem implements OnInit {
+export class ContactItem {
   @Input() contact: Contact;
-  @Output() contactSelected = new EventEmitter<Contact>();
-
-  onSelected() {
-  this.contactSelected.emit(this.contact);
-}
-
-  constructor() { }
-
-  ngOnInit(): void { }
-
- 
-
-
 }

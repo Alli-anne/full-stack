@@ -1,11 +1,10 @@
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4>{{contact?.name}}</h4>
         <img alt="{{contact?.name}}" src="{{contact?.imageUrl}}" class="img-responsive img-circle">
         <div>
-            <a href="#" class="btn btn-primary btn-sm" [routerLink]="['/contacts', contact.id, 'edit']" >Edit</a>
-            <a href="#" class="btn btn-danger btn-sm" (click)="onDelete()">Delete</a>
+            <a href="#" class="btn btn-primary btn-sm" [routerLink]="['/contacts', contact.id, 'edit']" (click)="$event.preventDefault()">Edit</a>
+            <a href="#" class="btn btn-danger btn-sm" (click)="onDelete(); $event.preventDefault()">Delete</a>
         </div>
     </div>
     <div class="panel-body">

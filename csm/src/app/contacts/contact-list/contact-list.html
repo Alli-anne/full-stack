@@ -4,5 +4,5 @@
         <a href="#" class="btn btn-primary btn-xs" [routerLink]="['new']">New Contact</a>
     </div>
     <div class="panel-body">
-<app-contact-item *ngFor="let contact of contacts" [contact]="contact" (contactSelected)="onSelected($event)"></app-contact-item>
+<app-contact-item *ngFor="let contact of contacts" [contact]="contact"></app-contact-item>
 </div>
