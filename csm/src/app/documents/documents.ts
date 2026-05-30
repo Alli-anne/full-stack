@@ -8,18 +8,7 @@ import { DocumentsService } from './documents.service';
   templateUrl: './documents.html',
   styleUrl: './documents.css',
 })
-export class Documents implements OnInit {
-  selectedDocument: Document | null = null;
-  constructor(private documentsService: DocumentsService) {}
-
-
- ngOnInit() {
-  this.documentsService.documentSelectedEvent.subscribe(
-    (document: Document) => {
-      this.selectedDocument = document;
-    }
-  )
-}
-
+export class Documents {
+ 
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { WinRef } from '../../../win-ref';
+import { WinRef } from '../../win-ref';
 import { DocumentsService } from '../documents.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Document } from '../document.model';
