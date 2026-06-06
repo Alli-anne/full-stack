@@ -9,9 +9,5 @@ import { Component, signal} from '@angular/core';
 export class App {
   protected readonly title = signal('recipe-card2');
 
-  loadedFeature = 'recipe';
-
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
+ 
 }
