@@ -19,6 +19,7 @@ import { ContactService } from './contacts/contact.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentEdit } from './documents/document-edit/document-edit';
 import { ContactEdit } from './contacts/contact-edit/contact-edit';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { ContactEdit } from './contacts/contact-edit/contact-edit';
     DocumentEdit,
     ContactEdit
   ],
-  imports: [BrowserModule, DropdownDirective, AppRoutingModule],
+  imports: [BrowserModule, DropdownDirective, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), ContactService],
   bootstrap: [App],
 })
