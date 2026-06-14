@@ -28,13 +28,13 @@ export class DocumentEdit implements OnInit {
     (params: Params) => {
       const id = params['id'];
       if (!id) {
-        this.editMode = false;  // ✅ correct
-        return;                  // ✅ correct
+        this.editMode = false;  
+        return;                 
       }
       this.editMode = true;
       this.originalDocument = this.documentService.getDocument(id);
       if (!this.originalDocument) {
-        return; // ✅ correct
+        return; 
       }
       this.document = JSON.parse(JSON.stringify(this.originalDocument)); 
     }
