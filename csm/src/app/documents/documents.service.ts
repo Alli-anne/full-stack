@@ -25,7 +25,7 @@ export class DocumentsService  {
     'https://csm-wdd430-default-rtdb.firebaseio.com/documents.json'
   ).subscribe(
     (documents: Document[]) => {
-      this.documents = documents;
+      this.documents = documents || [];
 
       this.maxDocumentId = this.getMaxId();
 

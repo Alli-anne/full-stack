@@ -23,7 +23,7 @@ export class MessageService {
       'https://csm-wdd430-default-rtdb.firebaseio.com/messages.json'
     ).subscribe(
       (messages: Message[]) => {
-        this.messages = messages;
+        this.messages = messages || [];
 
         this.maxMessageId = this.getMaxId();
 

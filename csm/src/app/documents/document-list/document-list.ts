@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Document } from '../document.model';
 import { DocumentsService } from '../documents.service';
@@ -15,7 +15,10 @@ export class DocumentList  implements OnInit, OnDestroy {
   subscription: Subscription;
 
 
-  constructor(private documentsService: DocumentsService) {
+  constructor(
+    private documentsService: DocumentsService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
   }
 
   onSelectedDocument(document: Document) {
@@ -26,8 +29,11 @@ export class DocumentList  implements OnInit, OnDestroy {
   this.subscription = this.documentsService.documentListChangedEvent.subscribe(
     (documents: Document[]) => {
       this.documents = documents;
+      this.changeDetectorRef.detectChanges();
     }
   )
+
+  this.documentsService.getDocuments();
 }
    
 ngOnDestroy() {
@@ -36,5 +42,3 @@ ngOnDestroy() {
   }
 }
 }
-
-

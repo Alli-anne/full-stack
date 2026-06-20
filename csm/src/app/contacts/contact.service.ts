@@ -23,7 +23,9 @@ export class ContactService {
           'https://csm-wdd430-default-rtdb.firebaseio.com/contacts.json'
         ).subscribe(
           (contacts: Contact[]) => {
-            this.contacts = contacts;
+            console.log('got contacts from server:', contacts);
+
+            this.contacts = contacts || [];
       
             this.maxContactId = this.getMaxId();
       
