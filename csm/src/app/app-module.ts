@@ -20,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DocumentEdit } from './documents/document-edit/document-edit';
 import { ContactEdit } from './contacts/contact-edit/contact-edit';
 import { FormsModule } from '@angular/forms';
-
+import { ContactsFilterPipe } from './contacts/contacts-filter-pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { FormsModule } from '@angular/forms';
     MessageItem,
     MessageEdit,
     DocumentEdit,
-    ContactEdit
+    ContactEdit,
+    ContactsFilterPipe,
   ],
-  imports: [BrowserModule, DropdownDirective, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, DropdownDirective, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), ContactService],
   bootstrap: [App],
 })
