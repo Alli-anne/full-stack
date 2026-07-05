@@ -5,6 +5,8 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+var config = require('./server/config/config');
 
 // import the routing file to handle the default (index) route
 var index = require('./server/routes/app');
@@ -48,6 +50,19 @@ app.use('/', index);
 app.use('/documents', documents);
 app.use('/messages', messages);
 app.use('/contacts', contacts);
+
+
+// establish a connection to the mongo database
+mongoose.connect('mongodb://localhost:27017/cms',
+   { useNewUrlParser: true }, (err, res) => {
+      if (err) {
+         console.log('Connection failed: ' + err);
+      }
+      else {
+         console.log('Connected to database!');
+      }
+   }
+);
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*splat', (req, res) => {
