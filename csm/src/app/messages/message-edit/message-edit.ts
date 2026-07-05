@@ -18,8 +18,13 @@ export class MessageEdit {
 onSendMessage() {
   const subjectValue = this.subject.nativeElement.value;
   const msgTextValue = this.msgText.nativeElement.value;
-const message = new Message('0', subjectValue, msgTextValue, '7');
-  this.messageService.addMessage(message);
+const message = new Message(
+  '0',
+  subjectValue,
+  msgTextValue,
+  '7',
+  ''
+);  this.messageService.addMessage(message);
   this.onClear();
 }
  onClear() {

@@ -18,24 +18,22 @@ export class DocumentsService {
 
   getDocuments() {
     this.http
-      .get<{ message: string; documents: Document[] }>('http://localhost:3000/documents')
+      .get<{ message: string; documents: Document[] }>(
+        'http://localhost:3000/documents'
+      )
       .subscribe((responseData) => {
-        this.documents = responseData.documents;
+        this.documents = responseData.documents || [];
 
-        this.documents.sort((a: Document, b: Document) => {
-          if (a.name < b.name) return -1;
-          if (a.name > b.name) return 1;
-          return 0;
-        });
-
-        this.documentListChangedEvent.next(this.documents.slice());
+        this.sortAndSend();
       });
   }
 
+  getDocument(id: string) {
+    return this.documents.find(doc => doc.id === id);
+  }
+
   addDocument(document: Document) {
-    if (!document) {
-      return;
-    }
+    if (!document) return;
 
     document.id = '';
 
@@ -56,19 +54,17 @@ export class DocumentsService {
   }
 
   updateDocument(originalDocument: Document, newDocument: Document) {
-    if (!originalDocument || !newDocument) {
-      return;
-    }
+    if (!originalDocument || !newDocument) return;
 
     const pos = this.documents.findIndex(
       d => d.id === originalDocument.id
     );
 
-    if (pos < 0) {
-      return;
-    }
+    if (pos < 0) return;
 
     newDocument.id = originalDocument.id;
+
+    // Only keep this if your model actually has _id
     newDocument._id = originalDocument._id;
 
     const headers = new HttpHeaders({
@@ -88,17 +84,13 @@ export class DocumentsService {
   }
 
   deleteDocument(document: Document) {
-    if (!document) {
-      return;
-    }
+    if (!document) return;
 
     const pos = this.documents.findIndex(
       d => d.id === document.id
     );
 
-    if (pos < 0) {
-      return;
-    }
+    if (pos < 0) return;
 
     this.http
       .delete('http://localhost:3000/documents/' + document.id)

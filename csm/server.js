@@ -53,16 +53,14 @@ app.use('/contacts', contacts);
 
 
 // establish a connection to the mongo database
-mongoose.connect('mongodb://localhost:27017/cms',
-   { useNewUrlParser: true }, (err, res) => {
-      if (err) {
-         console.log('Connection failed: ' + err);
-      }
-      else {
-         console.log('Connected to database!');
-      }
-   }
-);
+mongoose.connect('mongodb://localhost:27017/cms')
+  .then(() => {
+    console.log('Connected to database!');
+  })
+  .catch(err => {
+    console.log('Connection failed: ' + err);
+  });
+
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*splat', (req, res) => {

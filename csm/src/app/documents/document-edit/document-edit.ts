@@ -43,13 +43,14 @@ export class DocumentEdit implements OnInit {
    onSubmit(form: NgForm) {
   const value = form.value;
 
-  const newDocument = new Document(
-    this.originalDocument?.id,
-    value.name,
-    value.description,
-    value.url,
-    []
-  );
+ const newDocument = new Document(
+  this.originalDocument?.id || '',
+  value.name,
+  value.description,
+  value.url,
+  this.originalDocument?._id || '',
+  []
+);
 
 
   if (this.editMode) {

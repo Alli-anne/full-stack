@@ -53,12 +53,13 @@ export class ContactEdit implements OnInit {
     const value = form.value;
 
     const newContact = new Contact(
-      this.originalContact?.id,
+      this.editMode && this.contact ? this.contact.id : '',
       value.name,
       value.email,
       value.phone,
       value.imageUrl,
-      []
+      [],
+      this.editMode && this.contact ? this.contact._id : ''
     );
 
     if (this.editMode) {
