@@ -1,0 +1,11 @@
+.streak-box {
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #fff3e0;
+  text-align: center;
+}
+
+.streak-box h3 {
+  margin: 0 0 8px 0;
+}

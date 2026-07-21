@@ -1,0 +1,5 @@
+<div class="streak-box" *ngIf="streakService.streakData()">
+  <h3>Your Streak 🔥</h3>
+  <p>This week: {{ streakService.streakData().weeklyStreak }}</p>
+  <p>All time: {{ streakService.streakData().lifetimeStreak }}</p>
+</div>
