@@ -3,9 +3,8 @@
   <input [(ngModel)]="newEstimate" type="number" placeholder="Estimated minutes" />
   <button (click)="addTask()">Add Task</button>
 </div>
-
 <div class="task-card" [class.completed]="task.completed" *ngFor="let task of tasks()">
-  <span>{{ task.title }} — est: {{ task.estimate_time }} min — done: {{ task.completed }}</span>
+  <span>{{ task.title }} — est: {{ task.estimate_time }} min</span>
   <div>
     <button (click)="completeTask(task)">Toggle Complete</button>
     <button (click)="deleteTask(task._id)">Delete</button>

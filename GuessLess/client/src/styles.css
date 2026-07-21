@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f4f1f8;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #5c6475;
+  --border: #111827;
+  --accent: #5577ff;
+  --accent-soft: #e8edff;
+  --ok: #f5b3cf;
+  --line: #111827;
+  --header-bg: transparent;
+  --header-text: #111827;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.app-header {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-radius: 0;
+  padding: 0 0 0.75rem;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 3.75rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  box-shadow: none;
+  border-bottom: 4px solid var(--line);
+  align-self: start;
+  text-align: left;
+  max-width: 780px;
+}
+
+app-root {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  column-gap: clamp(1rem, 3vw, 2.5rem);
+  row-gap: 2rem;
+  padding: clamp(1.25rem, 3vw, 3rem);
+  align-items: start;
+  align-content: start;
+}
+
+app-task-list,
+app-streak-display {
+  background: var(--panel);
+  border-radius: 0;
+  border: 0;
+  box-shadow: 10px 10px 0 rgba(17, 24, 39, 0.16);
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 900px) {
+  app-root {
+    grid-template-columns: 1fr;
+  }
+
+  app-streak-display {
+    margin-top: 0;
+  }
+
+  .app-header {
+    font-size: 2rem;
+  }
+}
+
+button {
+  font: inherit;
+}

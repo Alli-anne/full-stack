@@ -14,6 +14,7 @@ export class TaskList {
   tasks = signal<any[]>([]);
   newTitle = '';
   newEstimate = 0;
+  trackActualTime = false;
 
 constructor(private taskService: Task, private streakService: Streak) {
       this.refresh();
@@ -34,12 +35,22 @@ constructor(private taskService: Task, private streakService: Streak) {
   }
 
   completeTask(task: any) {
-  const actual = prompt('How many minutes did it actually take?');
-  this.taskService.updateTask(task._id, { real_time: Number(actual) }).subscribe(() => {
-    this.refresh();
-    this.streakService.refresh();
-  });
-}
+    const payload: any = {};
+    if (this.trackActualTime) {
+      const actual = prompt('How many minutes did it actually take?');
+      if (actual === null) {
+        return;
+      }
+      payload.real_time = Number(actual) || 0;
+    } else {
+      payload.real_time = 0;
+    }
+
+    this.taskService.updateTask(task._id, payload).subscribe(() => {
+      this.refresh();
+      this.streakService.refresh();
+    });
+  }
 
   deleteTask(id: any) {
     this.taskService.deleteTask(id).subscribe(() => {

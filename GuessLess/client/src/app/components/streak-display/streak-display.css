@@ -1,11 +1,23 @@
 .streak-box {
-  padding: 16px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  background-color: #fff3e0;
-  text-align: center;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0;
+  background: #fbe3ef;
+  text-align: left;
+  border-left: 0;
+  border-top: 0;
 }
 
 .streak-box h3 {
-  margin: 0 0 8px 0;
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.streak-box p {
+  margin: 0.45rem 0;
+  color: #111827;
+  font-size: 1.05rem;
 }
